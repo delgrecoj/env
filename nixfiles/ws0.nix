@@ -35,12 +35,25 @@ in {
   boot.loader.systemd-boot.memtest86.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
+    zfs rollback -r zpuddle/ephem/root@blank
+  '';
+  systemd.tmpfiles.rules = [
+    "L /etc/nixos/configuration.nix - - - - /_projects/env/nixfiles/ws0.nix"
+    "L /nonroot/.ssh - - - - /_projects/secrets/ssh"
+    "L /nonroot/.gnupg - - - - /_projects/secrets/gnupg"
+    "L /nonroot/.password-store - - - - /_projects/secrets/pass"
+    "L /root/.ssh - - - - /_projects/secrets/ssh"
+    "L /root/.gnupg - - - - /_projects/secrets/gnupg"
+    "L /root/.password-store - - - - /_projects/secrets/pass"
+  ];
+
   fileSystems."/" = { device = "zpuddle/ephem/root"; fsType = "zfs"; };
   fileSystems."/_backups" = { device = "zpuddle/persist/backups"; fsType = "zfs"; };
   fileSystems."/_deprecated" = { device = "zpuddle/persist/deprecated"; fsType = "zfs"; };
   fileSystems."/_docker" = { device = "zpuddle/persist/docker"; fsType = "zfs"; };
   fileSystems."/_dockervols" = { device = "zpuddle/persist/dockervols"; fsType = "zfs"; };
-  fileSystems."/_projects" = { device = "zpuddle/persist/projects"; fsType = "zfs"; };
+  fileSystems."/_projects" = { device = "zpuddle/persist/projects"; fsType = "zfs"; neededForBoot = true; };
   fileSystems."/_scratch" = { device = "zpuddle/persist/scratch"; fsType = "zfs"; };
   fileSystems."/boot" = { device = "/dev/disk/by-uuid/42F5-5416"; fsType = "vfat"; };
   fileSystems."/nix" = { device = "zpuddle/ephem/nix"; fsType = "zfs"; };
@@ -100,15 +113,16 @@ in {
     extraOptions = "--data-root=/_docker";
   };
 
-  # FIXME: replace with immutable setup later.
-  # Don't forget to set a password with ‘passwd’.
+  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/passwd_ws0_root
+  # must mark the mount as needed on boot; see above.
   users = {
-    mutableUsers = true;
+    mutableUsers = false;
     users = {
       nonroot = {
         isNormalUser = true;
         home = "/nonroot";
         extraGroups = [ "wheel" "audio" "docker" ];
+        passwordFile = "/_projects/secrets/shadow/passwd_ws0_nonroot";
         openssh = {
           authorizedKeys = {
             keys = [
@@ -119,6 +133,7 @@ in {
       };
       root = {
         extraGroups = [ "audio" "docker" ];
+        passwordFile = "/_projects/secrets/shadow/passwd_ws0_root";
         openssh = {
           authorizedKeys = {
             keys = [

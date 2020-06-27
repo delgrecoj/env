@@ -52,6 +52,7 @@
       pkgs.lm_sensors
       pkgs.micro
       pkgs.mkcert
+      pkgs.mkpasswd
       pkgs.nix
       pkgs.openssh
       pkgs.p7zip
