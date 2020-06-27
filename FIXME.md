@@ -1,6 +1,5 @@
 # FIXME
 
-* [ ] corecli.nix applied to sv0
 * [ ] erase-your-darlings applied to ws0 with symlinks for secrets
 * [ ] docs for secrets
 * [ ] docs for filesystem layout

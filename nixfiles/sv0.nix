@@ -2,6 +2,7 @@
 {
   imports = [
     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    ./corecli.nix
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
@@ -47,19 +48,6 @@
 
   time.timeZone = "America/New_York";
   environment.systemPackages = [
-    pkgs.curl
-    pkgs.rsync
-    pkgs.git
-    pkgs.tig
-    pkgs.micro
-    pkgs.vim
-    pkgs.tree
-    pkgs.tmux
-    pkgs.bash
-    pkgs.bashInteractive
-    pkgs.bashCompletion
-    pkgs.openssh
-    pkgs.gnupg
   ];
 
   users.mutableUsers = false;
