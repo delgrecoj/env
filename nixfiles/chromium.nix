@@ -13,6 +13,8 @@
         "[*.]localhost"
         "[*.]localdomain"
 
+        "[*.]youtube.com"
+
         "[*.]allegheny.edu"
         "[*.]amazon.com"
         "[*.]citizensbank.com"
