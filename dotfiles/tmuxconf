@@ -1,0 +1,56 @@
+# without this, frequently can't scrollback far enough
+set -g history-limit 100000
+
+# patches for tty compat
+set -g default-terminal screen
+set -g update-environment 'DISPLAY SSH_ASKPASS SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY TERM'
+if "[[ ${TERM} =~ 256color || ${TERM} == fbterm || ${TERM} == linux ]]" 'set -g default-terminal screen-256color'
+set -sg escape-time 0
+
+# index naturally
+set -g base-index 1
+
+# ditch ctrl-b for grave
+unbind C-b
+set -g prefix `
+bind ` send-prefix
+
+# separators
+set -g pane-border-style "fg=colour238,bg=default"
+set -g pane-active-border-style "fg=colour246,bg=default"
+
+# splitting (new panes take current PWD)
+bind '\' split-window -h -c '#{pane_current_path}'
+bind - split-window -v -c '#{pane_current_path}'
+bind c new-window -c '#{pane_current_path}'
+unbind '"'
+unbind |
+
+# movement
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# resizing
+bind H resize-pane -L 5
+bind J resize-pane -D 5
+bind K resize-pane -U 5
+bind L resize-pane -R 5
+
+# layouts
+bind e select-layout even-vertical
+bind E select-layout even-horizontal
+
+# statusbar
+set -g status-interval 1
+set -g status-style "default"
+set -g status-right '%l:%M'
+set -g status-left ""
+
+# enable mouse support
+set -g mouse on
+
+# having mouse support enabled makes copying irritating,
+# but when disabled scrollback is irritating, so can't win.
+# optimize for scrollback because that's more heavily used.

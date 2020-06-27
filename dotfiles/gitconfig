@@ -1,0 +1,12 @@
+[user]
+  name = Jesse Del Greco
+  email = jesse@jessedelgreco.com
+  signingkey = 4AE9E4F88591C2B374C1902F36665ACCAC0274F1
+[push]
+  default = simple
+[core]
+  quotepath = false
+[color]
+  ui = true
+[commit]
+  gpgsign = true
