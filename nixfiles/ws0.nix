@@ -5,8 +5,6 @@ let
     trustedCerts = {
       pfSenseInternalCA = builtins.readFile ../notsecret/pfsense-internal-CA.crt;
       pfSenseIntermediateCA = builtins.readFile ../notsecret/pfsense-intermediate-CA.crt;
-      devWildcardLocalhost = builtins.readFile ../notsecret/wildcard-localhost.pem;
-      # mkcert "*.localhost" localhost 127.0.0.1 ::1
     };
     sshPubKeys = {
       rootPubKey = builtins.readFile ../notsecret/ws0_root.pub;
@@ -103,7 +101,6 @@ in {
       certificates = [
         notsecret.trustedCerts.pfSenseInternalCA
         notsecret.trustedCerts.pfSenseIntermediateCA
-        notsecret.trustedCerts.devWildcardLocalhost
       ];
     };
   };
