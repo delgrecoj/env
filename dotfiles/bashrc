@@ -113,7 +113,6 @@ export LS_COLORS
 
 alias cd="cnl"
 alias ..="cnl .."
-alias ..="cnl .."
 alias ...="cnl ../.."
 alias ....="cnl ../../.."
 
@@ -181,6 +180,8 @@ alias tn='tmux new'
 
 alias zl='zfs list'
 alias zs='zpool status'
+
+alias nrs='sudo nixos-rebuild switch'
 
 alias rm="rm -i"
 alias mkdir="mkdir -pv"
