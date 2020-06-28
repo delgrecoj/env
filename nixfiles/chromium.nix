@@ -12,6 +12,7 @@
       whitelist = [
         "[*.]localhost"
         "[*.]localdomain"
+        "file:///*"
 
         "[*.]youtube.com"
 
