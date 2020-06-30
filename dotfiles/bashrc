@@ -88,8 +88,7 @@ prompt_command() {
   fi
 
   # prompt showing the user, hostname, cwd, and return codes.
-  # FIXME: would prefer the cwd to be gray like it was before.
-  PS1="\[\e[1;35m\]\u@\h \w$NS$RETC\[\e[m\] "
+  PS1="\[\e[90m\]\u@\h \e[1m\3[32m\w\e[36m\e[39m$NS$RETC\[\e[m\] "
 
   # append each line to history individually.
   history -a
