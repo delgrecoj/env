@@ -14,12 +14,11 @@
         "[*.]localdomain"
         "file:///*"
 
-        "[*.]youtube.com"
-
         "[*.]allegheny.edu"
         "[*.]amazon.com"
         "[*.]citizensbank.com"
         "[*.]citizensbankonline.com"
+        "[*.]dell.com"
         "[*.]docker.com"
         "[*.]duckduckgo.com"
         "[*.]elixir-lang.org"
@@ -31,18 +30,22 @@
         "[*.]google.com"
         "[*.]hex.pm"
         "[*.]hexdocs.pm"
+        "[*.]hp.com"
         "[*.]lenovo.com"
         "[*.]lobste.rs"
+        "[*.]netflix.com"
         "[*.]newegg.com"
         "[*.]nixos.org"
         "[*.]nixos.wiki"
         "[*.]oracle.com"
         "[*.]paypal.com"
         "[*.]pragprog.com"
+        "[*.]redd.it"
         "[*.]reddit.com"
         "[*.]twitter.com"
         "[*.]wikipedia.org"
         "[*.]ycombinator.com"
+        "[*.]youtube.com"
       ];
     in {
       # https://cloud.google.com/docs/chrome-enterprise/policies
