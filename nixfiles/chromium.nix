@@ -5,6 +5,7 @@
     extensions = [
       "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
+      "aghfnjkcakhmadgdomlmlhhaocbkloab" # Just Black theme
     ];
     extraOpts = let
       # explicitly whitelist things that are allowed images/popups/javascript/etc
