@@ -17,14 +17,18 @@
 
         "[*.]allegheny.edu"
         "[*.]amazon.com"
+        "[*.]archlinux.org"
         "[*.]citizensbank.com"
         "[*.]citizensbankonline.com"
         "[*.]dell.com"
+        "[*.]digitalocean.com"
         "[*.]docker.com"
         "[*.]duckduckgo.com"
         "[*.]elixir-lang.org"
         "[*.]elixirforum.com"
         "[*.]elixirschool.com"
+        "[*.]freebsd.org"
+        "[*.]gentoo.org"
         "[*.]github.com"
         "[*.]github.io"
         "[*.]githubusercontent.com"
@@ -34,6 +38,7 @@
         "[*.]hp.com"
         "[*.]lenovo.com"
         "[*.]lobste.rs"
+        "[*.]namecheap.com"
         "[*.]netflix.com"
         "[*.]newegg.com"
         "[*.]nixos.org"
@@ -47,6 +52,7 @@
         "[*.]wikipedia.org"
         "[*.]ycombinator.com"
         "[*.]youtube.com"
+        "[*.]ziglang.org"
       ];
     in {
       # https://cloud.google.com/docs/chrome-enterprise/policies
@@ -154,6 +160,16 @@
           { "url" = "https://hexdocs.pm/iex/IEx.html"; name = "elixir-docs-iex"; }
           { "url" = "https://hexdocs.pm/logger/Logger.html"; name = "elixir-docs-logger"; }
           { "url" = "https://hexdocs.pm/mix/Mix.html"; name = "elixir-docs-mix"; }
+        ]; }
+        { "name" = "Zig"; "children" = [
+          { "url" = "https://ziglang.org"; name = "zig-lang"; }
+          { "url" = "https://github.com/ziglang/zig"; name = "zig-github"; }
+          { "url" = "https://github.com/ziglang/zig/issues"; name = "zig-issues"; }
+          { "url" = "https://ziglang.org/download/"; name = "zig-releases"; }
+          { "url" = "https://ziglang.org/documentation/0.6.0/"; name = "zig-docs"; }
+          { "url" = "https://ziglang.org/documentation/0.6.0/std/"; name = "zig-docs-std"; }
+          { "url" = "https://github.com/nrdmn/awesome-zig"; name = "zig-awesome"; }
+          { "url" = "https://old.reddit.com/r/Zig/"; name = "zig-reddit"; }
         ]; }
         { "name" = "ZFS"; "children" = [
           { "url" = "https://www.freebsd.org/doc/handbook/zfs.html"; name = "zfs-handbook"; }
