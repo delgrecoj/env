@@ -143,7 +143,7 @@ in {
   # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/shadow/passwd_lp0_nonroot
   # must mark the mount as needed on boot; see above.
   users = {
-    mutableUsers = true;
+    mutableUsers = false;
     users = {
       nonroot = {
         isNormalUser = true;
