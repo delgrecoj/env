@@ -178,6 +178,9 @@ alias gl="g log --graph --pretty=format:'%Cred%h %G? %Cgreen%cn %Cblue%cr %Crese
 alias gd="g diff"
 alias gD="g diff --cached"
 
+# FIXME: aliases for diff
+# (mainly tripped up by wanting to generally pipe into less -r)
+
 alias tl='tmux list-sessions'
 alias ta='tmux attach -t '
 alias td='tmux detach'

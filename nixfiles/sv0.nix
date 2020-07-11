@@ -52,7 +52,8 @@
 
   users.mutableUsers = false;
   users.users.root.extraGroups = [ "docker" ];
-  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/passwd_root
+  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/shadow/passwd_sv0_root
+  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/shadow/passwd_sv0_nonroot
   # must mark the mount as needed on boot; see above.
   users.users.root.passwordFile = "/_projects/passwd_root";
   users.users.nonroot.isNormalUser = true;

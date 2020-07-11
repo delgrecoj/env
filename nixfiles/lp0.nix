@@ -1,3 +1,6 @@
+# device: Lenovo IdeaPad S940
+# initial install: 2020-07-08
+
 { config, lib, pkgs, ... }:
 let
 
@@ -7,8 +10,8 @@ let
       pfSenseIntermediateCA = builtins.readFile ../notsecret/pfsense-intermediate-CA.crt;
     };
     sshPubKeys = {
-      rootPubKey = builtins.readFile ../notsecret/ws0_root.pub;
-      nonrootPubKey = builtins.readFile ../notsecret/ws0_nonroot.pub;
+      rootPubKey = builtins.readFile ../notsecret/lp0_root.pub;
+      nonrootPubKey = builtins.readFile ../notsecret/lp0_nonroot.pub;
     };
   };
 
@@ -19,7 +22,7 @@ in {
     ./coregui.nix
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelParams = [ "elevator=none" ]; # ZFS perf thing.
@@ -37,7 +40,7 @@ in {
     zfs rollback -r zpuddle/ephem/root@blank
   '';
   systemd.tmpfiles.rules = [
-    "L /etc/nixos/configuration.nix - - - - /_projects/env/nixfiles/ws0.nix"
+    "L /etc/nixos/configuration.nix - - - - /_projects/env/nixfiles/lp0.nix"
     "L /nonroot/.ssh - - - - /_projects/secrets/ssh"
     "L /nonroot/.gnupg - - - - /_projects/secrets/gnupg"
     "L /nonroot/.password-store - - - - /_projects/secrets/pass"
@@ -47,19 +50,20 @@ in {
   ];
 
   fileSystems."/" = { device = "zpuddle/ephem/root"; fsType = "zfs"; };
+  fileSystems."/nix" = { device = "zpuddle/ephem/nix"; fsType = "zfs"; };
   fileSystems."/_backups" = { device = "zpuddle/persist/backups"; fsType = "zfs"; };
   fileSystems."/_deprecated" = { device = "zpuddle/persist/deprecated"; fsType = "zfs"; };
   fileSystems."/_docker" = { device = "zpuddle/persist/docker"; fsType = "zfs"; };
   fileSystems."/_dockervols" = { device = "zpuddle/persist/dockervols"; fsType = "zfs"; };
-  fileSystems."/_projects" = { device = "zpuddle/persist/projects"; fsType = "zfs"; neededForBoot = true; };
+  fileSystems."/_projects" = { device = "zpuddle/persist/projects"; fsType = "zfs"; };
   fileSystems."/_scratch" = { device = "zpuddle/persist/scratch"; fsType = "zfs"; };
-  fileSystems."/boot" = { device = "/dev/disk/by-uuid/42F5-5416"; fsType = "vfat"; };
-  fileSystems."/nix" = { device = "zpuddle/ephem/nix"; fsType = "zfs"; };
+  fileSystems."/boot" = { device = "/dev/disk/by-uuid/09A5-F2E5"; fsType = "vfat"; };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/1d4ce75f-8044-4a41-ac99-3859f1cf17a6"; }
+    { device = "/dev/disk/by-uuid/5dd28c11-91fb-4e64-b242-a61878d2896c"; }
   ];
 
+  nix.maxJobs = lib.mkDefault 8;
   nixpkgs.config.allowUnfree = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
@@ -68,22 +72,36 @@ in {
     font = "${pkgs.terminus_font}/share/consolefonts/ter-v22b.psf.gz";
   };
 
-  # does not live in coregui due to needing a different version for lp0.
-  environment.etc."alacritty".text = builtins.readFile ../dotfiles/alacritty;
-
   time.timeZone = "America/New_York";
 
-  networking.hostName = "ws0";
-  networking.hostId = "b776b545"; # ZFS req.
+
+
+
+
+
+  environment.systemPackages = [
+    pkgs.light
+    pkgs.vanilla-dmz
+  ];
+  environment.etc."alacritty".text = builtins.readFile ../dotfiles/alacritty_smaller;
+
+  networking.hostName = "lp0";
+  networking.hostId = "01234567"; # FIXME # ZFS req.
   networking.useDHCP = false;
-  networking.interfaces.eno1.useDHCP = true;
-  # use this to set a static IP, e.g. for UBNT router initial setup.
-  #networking.interfaces.eno1.ipv4.addresses = [{ address = "192.168.1.11"; prefixLength = 24; }];
+  networking.interfaces.wlp0s20f3.useDHCP = true;
+
+  # friendlier wireless support than wpa_supplicant; use nmcli/nmtui.
+  networking.networkmanager.enable = true;
 
   # allow incoming 80/443 for testing/demo purposes.
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
   networking.firewall.allowedTCPPorts = [80 443];
+
+
+
+
+
 
   services = {
     openssh = {
@@ -94,8 +112,12 @@ in {
       ports = [55000];
     };
     xserver = {
-      dpi = 128;
-      videoDrivers = [ "nvidia" ];
+      dpi = 168;
+      # FIXME: trackpad is unreliable, sometimes works after boot sometimes doesn't.
+      # (using keynav for one-off clicks you need on GUI elements, slow but works)
+      libinput.enable = true;
+      libinput.dev = "/dev/input/event*";
+      synaptics.enable = false;
     };
   };
 
@@ -113,17 +135,21 @@ in {
     extraOptions = "--data-root=/_docker";
   };
 
-  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/shadow/passwd_ws0_root
-  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/shadow/passwd_ws0_nonroot
+  hardware.enableAllFirmware = true;
+  hardware.bluetooth.enable = false;
+  hardware.bluetooth.powerOnBoot = false;
+
+  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/shadow/passwd_lp0_root
+  # nix-env -i mkpasswd; mkpasswd -m sha-512 -s >> /_projects/secrets/shadow/passwd_lp0_nonroot
   # must mark the mount as needed on boot; see above.
   users = {
-    mutableUsers = false;
+    mutableUsers = true;
     users = {
       nonroot = {
         isNormalUser = true;
         home = "/nonroot";
         extraGroups = [ "wheel" "audio" "docker" ];
-        passwordFile = "/_projects/secrets/shadow/passwd_ws0_nonroot";
+        passwordFile = "/_projects/secrets/shadow/passwd_lp0_nonroot";
         openssh = {
           authorizedKeys = {
             keys = [
@@ -134,7 +160,7 @@ in {
       };
       root = {
         extraGroups = [ "audio" "docker" ];
-        passwordFile = "/_projects/secrets/shadow/passwd_ws0_root";
+        passwordFile = "/_projects/secrets/shadow/passwd_lp0_root";
         openssh = {
           authorizedKeys = {
             keys = [

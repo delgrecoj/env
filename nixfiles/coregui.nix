@@ -26,7 +26,7 @@ in {
       pkgs.hsetroot
       pkgs.imv
       pkgs.lxappearance
-      pkgs.matcha-gtk-theme
+      # pkgs.matcha-gtk-theme
       pkgs.mpv
       pkgs.pavucontrol
       pkgs.scrot
@@ -39,7 +39,7 @@ in {
       pkgs.zathura
     ];
     etc."sxhkdrc".text = builtins.readFile ../dotfiles/sxhkdrc;
-    etc."alacritty".text = builtins.readFile ../dotfiles/alacritty;
+    # etc."alacritty".text = builtins.readFile ../dotfiles/alacritty;
   };
 
   fonts.fonts = [
