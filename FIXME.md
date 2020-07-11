@@ -6,7 +6,7 @@
 * [ ] additional environs
 * [ ] packaging my own stuff?
 * [ ] docs for backups
-* [ ] rotate gnupg/sshkeys
+* [ ] rotate gnupg/~sshkeys~
 * [ ] docs for secure filetransfers
 * [ ] dunst
 * [ ] digitalocean droplet infect/config
