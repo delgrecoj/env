@@ -55,7 +55,7 @@ in {
   fileSystems."/_deprecated" = { device = "zpuddle/persist/deprecated"; fsType = "zfs"; };
   fileSystems."/_docker" = { device = "zpuddle/persist/docker"; fsType = "zfs"; };
   fileSystems."/_dockervols" = { device = "zpuddle/persist/dockervols"; fsType = "zfs"; };
-  fileSystems."/_projects" = { device = "zpuddle/persist/projects"; fsType = "zfs"; };
+  fileSystems."/_projects" = { device = "zpuddle/persist/projects"; fsType = "zfs"; neededForBoot = true; };
   fileSystems."/_scratch" = { device = "zpuddle/persist/scratch"; fsType = "zfs"; };
   fileSystems."/boot" = { device = "/dev/disk/by-uuid/09A5-F2E5"; fsType = "vfat"; };
 
