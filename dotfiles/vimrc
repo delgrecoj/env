@@ -123,7 +123,8 @@ Plug 'lnl7/vim-nix'
 Plug 'elixir-lang/vim-elixir'
 
 " improved Zig integration
-Plug 'ziglang/zig.vim'
+" FIXME *extremely* broken, renders the editor unusable on most keystrokes.
+" Plug 'ziglang/zig.vim'
 
 " haven't been working with these enough recently to justify keeping them enabled.
 " Plug 'zah/nim.vim'
