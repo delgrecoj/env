@@ -53,6 +53,7 @@
         "[*.]ycombinator.com"
         "[*.]youtube.com"
         "[*.]ziglang.org"
+        "[*.]ziglearn.org"
       ];
     in {
       # https://cloud.google.com/docs/chrome-enterprise/policies
@@ -170,6 +171,7 @@
           { "url" = "https://ziglang.org/documentation/0.6.0/std/"; name = "zig-docs-std"; }
           { "url" = "https://github.com/nrdmn/awesome-zig"; name = "zig-awesome"; }
           { "url" = "https://old.reddit.com/r/Zig/"; name = "zig-reddit"; }
+          { "url" = "https://ziglearn.org"; name = "zig-learn"; }
         ]; }
         { "name" = "ZFS"; "children" = [
           { "url" = "https://www.freebsd.org/doc/handbook/zfs.html"; name = "zfs-handbook"; }
