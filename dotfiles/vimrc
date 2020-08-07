@@ -128,7 +128,7 @@ Plug 'elixir-lang/vim-elixir'
 " Plug 'ziglang/zig.vim'
 
 Plug 'pangloss/vim-javascript'
-Plug 'evanleck/vim-svelte'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 " markdown tweaks to improve folding in large documents with nested headers.
 " also, disable some absurd nonsensical defaults that that plugin ships with.
