@@ -78,11 +78,10 @@ in {
       displayManager = {
         sddm = {
           enable = true;
-          autoLogin = {
-            enable = true;
-            relogin = false;
-            user = "nonroot";
-          };
+        };
+        autoLogin = {
+          enable = true;
+          user = "nonroot";
         };
         sessionCommands = ''
           # xmodmap -e "keycode 9 = grave"
