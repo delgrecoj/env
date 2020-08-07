@@ -299,9 +299,8 @@ endfunc
 
 " https://stackoverflow.com/q/2142402
 " save & restore folding on per-file basis
-" FIXME: this throws an error on the location list.
-" au BufWinLeave ?* mkview
-" au BufWinEnter ?* silent loadview
+au BufWinLeave ?* mkview
+au BufWinEnter ?* silent loadview
 
 " disable formatoptions nonsense
 au FileType * set fo-=r fo-=o
