@@ -122,14 +122,13 @@ Plug 'lnl7/vim-nix'
 " improved Elixir integration
 Plug 'elixir-lang/vim-elixir'
 
-" improved Zig integration
-" FIXME *extremely* broken, renders the editor unusable on most keystrokes.
-" Plug 'ziglang/zig.vim'
-
-" haven't been working with these enough recently to justify keeping them enabled.
 " Plug 'zah/nim.vim'
 " Plug 'rhysd/vim-crystal'
 " Plug 'elmcast/elm-vim'
+" Plug 'ziglang/zig.vim'
+
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte'
 
 " markdown tweaks to improve folding in large documents with nested headers.
 " also, disable some absurd nonsensical defaults that that plugin ships with.
@@ -301,8 +300,8 @@ endfunc
 " https://stackoverflow.com/q/2142402
 " save & restore folding on per-file basis
 " FIXME: this throws an error on the location list.
-au BufWinLeave ?* mkview
-au BufWinEnter ?* silent loadview
+" au BufWinLeave ?* mkview
+" au BufWinEnter ?* silent loadview
 
 " disable formatoptions nonsense
 au FileType * set fo-=r fo-=o

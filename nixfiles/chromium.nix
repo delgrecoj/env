@@ -18,15 +18,19 @@
         "[*.]allegheny.edu"
         "[*.]amazon.com"
         "[*.]archlinux.org"
+        "[*.]carbondesignsystem.com"
+        "[*.]carbondesignsystem.com"
         "[*.]citizensbank.com"
         "[*.]citizensbankonline.com"
         "[*.]dell.com"
+        "[*.]dev.to"
         "[*.]digitalocean.com"
         "[*.]docker.com"
         "[*.]duckduckgo.com"
         "[*.]elixir-lang.org"
         "[*.]elixirforum.com"
         "[*.]elixirschool.com"
+        "[*.]fastify.io"
         "[*.]freebsd.org"
         "[*.]gentoo.org"
         "[*.]github.com"
@@ -38,16 +42,20 @@
         "[*.]hp.com"
         "[*.]lenovo.com"
         "[*.]lobste.rs"
+        "[*.]medium.com"
         "[*.]namecheap.com"
         "[*.]netflix.com"
         "[*.]newegg.com"
         "[*.]nixos.org"
         "[*.]nixos.wiki"
+        "[*.]nodejs.org"
+        "[*.]npmjs.com"
         "[*.]oracle.com"
         "[*.]paypal.com"
         "[*.]pragprog.com"
         "[*.]redd.it"
         "[*.]reddit.com"
+        "[*.]svelte.dev"
         "[*.]twitter.com"
         "[*.]wikipedia.org"
         "[*.]ycombinator.com"
@@ -180,6 +188,18 @@
           { "url" = "https://wiki.gentoo.org/wiki/ZFS"; name = "zfs-gentoowiki"; }
           { "url" = "https://docs.oracle.com/cd/E26505_01/html/E37384/"; name = "zfs-oracle"; }
           { "url" = "https://old.reddit.com/r/zfs/"; name = "zfs-reddit"; }
+        ]; }
+        { "name" = "Svelte/Carbon"; "children" = [
+          { "url" = "https://svelte.dev/"; name = "svelte"; }
+          { "url" = "https://svelte.dev/docs"; name = "svelte-docs"; }
+          { "url" = "https://svelte.dev/examples"; name = "svelte-examples"; }
+          { "url" = "https://github.com/ItalyPaleAle/svelte-spa-router"; name = "svelte-spa-router"; }
+          { "url" = "https://nodejs.org/en/docs/"; name = "nodejs-docs"; }
+          { "url" = "https://nodejs.org/api/"; name = "nodejs-api"; }
+          { "url" = "https://www.carbondesignsystem.com/"; name = "carbon"; }
+          { "url" = "https://www.carbondesignsystem.com/guidelines/icons/library"; name = "carbon-icons"; }
+          { "url" = "https://github.com/IBM/carbon-components-svelte"; name = "carbon-components-src"; }
+          { "url" = "https://ibm.github.io/carbon-components-svelte"; name = "carbon-components-storybook"; }
         ]; }
       ];
 
