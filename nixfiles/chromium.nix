@@ -231,6 +231,15 @@
           { name = "svelte-docs"; url = "https://svelte.dev/docs"; }
           { name = "svelte-examples"; url = "https://svelte.dev/examples"; }
           { name = "svelte-spa-router"; url = "https://github.com/ItalyPaleAle/svelte-spa-router"; }
+          { name = "xkcd-all-in-one"; url = "https://xkcd.com/2369/"; }
+          { name = "xkcd-archive"; url = "https://xkcd.com/archive/"; }
+          { name = "xkcd-computer-problems"; url = "https://xkcd.com/722/"; }
+          { name = "xkcd-dependency"; url = "https://xkcd.com/2347/"; }
+          { name = "xkcd-duty-calls"; url = "https://xkcd.com/386/"; }
+          { name = "xkcd-goto"; url = "https://xkcd.com/292/"; }
+          { name = "xkcd-rtfm"; url = "https://xkcd.com/293/"; }
+          { name = "xkcd-success"; url = "https://xkcd.com/349/"; }
+          { name = "xkcd-techsupport"; url = "https://xkcd.com/627/"; }
           { name = "zfs-archwiki"; url = "https://wiki.archlinux.org/index.php/ZFS"; }
           { name = "zfs-gentoowiki"; url = "https://wiki.gentoo.org/wiki/ZFS"; }
           { name = "zfs-handbook"; url = "https://www.freebsd.org/doc/handbook/zfs.html"; }
