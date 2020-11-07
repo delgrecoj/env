@@ -136,6 +136,8 @@
           { name = "namecheap"; url = "https://namecheap.com/"; }
           { name = "newegg"; url = "https://newegg.com/"; }
           { name = "twitter"; url = "https://twitter.com/"; }
+          { name = "gmail"; url = "https://mail.google.com/mail/u/0/#inbox"; }
+          { name = "gsuite"; url = "https://admin.google.com/?hl=en"; }
         ]; }
         { name = "Reference"; children = [
           { name = "carbon"; url = "https://www.carbondesignsystem.com/"; }
