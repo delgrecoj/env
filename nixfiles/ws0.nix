@@ -83,7 +83,7 @@ in {
   # allow incoming 80/443 for testing/demo purposes.
   networking.firewall.enable = true;
   networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [80 443];
+  networking.firewall.allowedTCPPorts = [80 443 8384];
 
   services = {
     openssh = {
@@ -96,6 +96,16 @@ in {
     xserver = {
       dpi = 128;
       videoDrivers = [ "nvidia" ];
+    };
+    syncthing = {
+      enable = true;
+      systemService = true;
+      dataDir = "/_scratch/syncthing_data";
+      configDir = "/_scratch/syncthing_config";
+      guiAddress = "127.0.0.1:8384";
+      openDefaultPorts = true;
+      user = "nonroot";
+      group = "users";
     };
   };
 
