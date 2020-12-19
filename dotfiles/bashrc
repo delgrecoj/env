@@ -93,7 +93,7 @@ prompt_command() {
   txt='\e[30m'
   bg='\e[47m'
   reset='\e[0m'
-  PS1="\[$bold$bg$txt \u@\h \w$NS$RETC $reset\] "
+  PS1="$bold$bg$txt \u@\h \w$NS$RETC $reset "
   PS2="$bold$bg$txt > $reset "
 
   # append each line to history individually.
