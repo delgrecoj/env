@@ -1,4 +1,4 @@
-# core CLI environment; strictly non-machine-specific things that work from a TTY.
+# core CLI environment; strictly non-machine-specific things that work from a TTY / over SSH.
 { config, lib, pkgs, ... }:
 {
   console = {
@@ -39,6 +39,7 @@
       pkgs.fd
       pkgs.file
       pkgs.findutils
+      pkgs.fish
       pkgs.fzf
       pkgs.git
       pkgs.gnugrep
@@ -47,7 +48,10 @@
       pkgs.gnused
       pkgs.gnutar
       pkgs.gzip
+      pkgs.hdparm
       pkgs.htop
+      pkgs.hyperfine
+      pkgs.jq
       pkgs.less
       pkgs.lm_sensors
       pkgs.micro
@@ -60,6 +64,7 @@
       pkgs.pass
       pkgs.pinentry
       pkgs.psmisc
+      pkgs.pv
       pkgs.ripgrep
       pkgs.rsync
       pkgs.sd
@@ -73,41 +78,12 @@
       pkgs.unixtools.ping
       pkgs.unzip
       pkgs.watch
+      pkgs.wget
       pkgs.which
+      pkgs.ws
+      pkgs.xsv
       pkgs.zip
-
-      # pkgs.apg
-      # pkgs.cvs
-      # pkgs.dash
-      # pkgs.elvish
-      # pkgs.fdupes
-      # pkgs.fish
-      # pkgs.hdparm
-      # pkgs.hyperfine
-      # pkgs.iftop
-      # pkgs.imagemagick
-      # pkgs.iotop
-      # pkgs.iperf3
-      # pkgs.jo
-      # pkgs.jq
-      # pkgs.ksh
-      # pkgs.lnav
-      # pkgs.lrzip
-      # pkgs.mercurial
-      # pkgs.ncat
-      # pkgs.nmap
-      # pkgs.pandoc
-      # pkgs.pv
-      # pkgs.ruby
-      # pkgs.screen
-      # pkgs.scrypt
-      # pkgs.speedtest-cli
-      # pkgs.subversion
-      # pkgs.tcsh
-      # pkgs.wget
-      # pkgs.ws
-      # pkgs.xsv
-      # pkgs.zsh
+      pkgs.zsh
     ];
     etc."bashrc.local".text = builtins.readFile ../dotfiles/bashrc;
     etc."gitconfig".text = builtins.readFile ../dotfiles/gitconfig;
