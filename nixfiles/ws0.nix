@@ -68,9 +68,6 @@ in {
     font = "${pkgs.terminus_font}/share/consolefonts/ter-v22b.psf.gz";
   };
 
-  # does not live in coregui due to needing a different version for lp0.
-  environment.etc."alacritty".text = builtins.readFile ../dotfiles/alacritty;
-
   time.timeZone = "America/New_York";
 
   networking.hostName = "ws0";
