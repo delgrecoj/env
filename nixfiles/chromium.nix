@@ -15,71 +15,33 @@
         "[*.]localdomain"
         "file:///*"
 
-        "[*.]allegheny.edu"
-        "[*.]amazon.com"
-        "[*.]archlinux.org"
-        "[*.]carbondesignsystem.com"
-        "[*.]citizensbank.com"
-        "[*.]citizensbankonline.com"
-        "[*.]dell.com"
-        "[*.]dev.to"
-        "[*.]digitalocean.com"
-        "[*.]docker.com"
-        "[*.]duckduckgo.com"
-        "[*.]elixir-lang.org"
-        "[*.]elixirforum.com"
-        "[*.]elixirschool.com"
-        "[*.]fastify.io"
-        "[*.]freebsd.org"
-        "[*.]gentoo.org"
-        "[*.]github.com"
-        "[*.]github.io"
-        "[*.]githubusercontent.com"
-        "[*.]google.com"
-        "[*.]hex.pm"
-        "[*.]hexdocs.pm"
-        "[*.]hp.com"
-        "[*.]lenovo.com"
-        "[*.]lobste.rs"
-        "[*.]medium.com"
-        "[*.]namecheap.com"
-        "[*.]netflix.com"
-        "[*.]newegg.com"
         "[*.]nixos.org"
         "[*.]nixos.wiki"
-        "[*.]nodejs.org"
-        "[*.]npmjs.com"
-        "[*.]oracle.com"
-        "[*.]paypal.com"
-        "[*.]pragprog.com"
-        "[*.]redd.it"
-        "[*.]reddit.com"
-        "[*.]svelte.dev"
-        "[*.]twitter.com"
+        "[*.]github.com"
         "[*.]wikipedia.org"
-        "[*.]ycombinator.com"
-        "[*.]youtube.com"
-        "[*.]ziglang.org"
-        "[*.]ziglearn.org"
       ];
     in {
       # https://cloud.google.com/docs/chrome-enterprise/policies
 
       # strictly whitelist sites above
-      # FIXME: disabled temporarily
+      "DefaultNotificationsSetting" = 2; # disallow
+      "DefaultPluginsSetting" = 2; # disallow
+      "DefaultCookiesSetting" = 4; # keep for session duration
+
       # "DefaultImagesSetting" = 2; # disallow
-      # "DefaultJavaScriptSetting" = 2; # disallow
-      # "DefaultNotificationsSetting" = 2; # disallow
-      # "DefaultInsecureContentSetting" = 2; # disallow
-      # "DefaultPopupsSetting" = 2; # disallow
-      # "DefaultPluginsSetting" = 2; # disallow
-      # "DefaultCookiesSetting" = 4; # keep for session duration
-      # "JavaScriptAllowedForUrls" = whitelist;
       # "ImagesAllowedForUrls" = whitelist;
+
+      # "DefaultJavaScriptSetting" = 2; # disallow
+      # "JavaScriptAllowedForUrls" = whitelist;
+
+      # "DefaultInsecureContentSetting" = 2; # disallow
       # "InsecureContentAllowedForUrls" = whitelist;
+
+      # "DefaultPopupsSetting" = 2; # disallow
       # "PopupsAllowedForUrls" = whitelist;
-      # "AutoplayWhitelist" = whitelist;
+
       # "AutoplayAllowed" = false;
+      # "AutoplayWhitelist" = whitelist;
 
       # serve my own homepage/newtab
       # FIXME: intention is to bind internal webapps to these, eventually.
@@ -233,15 +195,6 @@
           { name = "svelte-docs"; url = "https://svelte.dev/docs"; }
           { name = "svelte-examples"; url = "https://svelte.dev/examples"; }
           { name = "svelte-spa-router"; url = "https://github.com/ItalyPaleAle/svelte-spa-router"; }
-          { name = "xkcd-all-in-one"; url = "https://xkcd.com/2369/"; }
-          { name = "xkcd-archive"; url = "https://xkcd.com/archive/"; }
-          { name = "xkcd-computer-problems"; url = "https://xkcd.com/722/"; }
-          { name = "xkcd-dependency"; url = "https://xkcd.com/2347/"; }
-          { name = "xkcd-duty-calls"; url = "https://xkcd.com/386/"; }
-          { name = "xkcd-goto"; url = "https://xkcd.com/292/"; }
-          { name = "xkcd-rtfm"; url = "https://xkcd.com/293/"; }
-          { name = "xkcd-success"; url = "https://xkcd.com/349/"; }
-          { name = "xkcd-techsupport"; url = "https://xkcd.com/627/"; }
           { name = "zfs-archwiki"; url = "https://wiki.archlinux.org/index.php/ZFS"; }
           { name = "zfs-gentoowiki"; url = "https://wiki.gentoo.org/wiki/ZFS"; }
           { name = "zfs-handbook"; url = "https://www.freebsd.org/doc/handbook/zfs.html"; }
