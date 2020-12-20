@@ -263,8 +263,11 @@ autodos2unix() {
   \find . -type f -print0 | xargs -0 dos2unix
 }
 
-# alias to jump to /data more easily,
-# and jump there by default if launching in # $HOME.
-alias cdd="\cd /_scratch"
-[[ "$PWD" == "$HOME" ]] && cdd
+# alias to jump to common directories more easily,
+# and jump there by default if launching in $HOME.
+alias cds="\cd /_scratch"
+alias cdp="\cd /_projects"
+alias cdd="\cd /_deprecated"
+alias cdb="\cd /_backups"
+[[ "$PWD" == "$HOME" ]] && cds
 
