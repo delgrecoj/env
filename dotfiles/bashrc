@@ -89,10 +89,10 @@ prompt_command() {
 
   # prompt showing the user, hostname, cwd, and return codes.
   # the extra \[..\] is needed to avoid a tab-complete issue.
-  bold='\e[1m'
-  txt='\e[30m'
-  bg='\e[47m'
-  reset='\e[0m'
+  bold='\[\e[1m\]'
+  txt='\[\e[30m\]'
+  bg='\[\e[47m\]'
+  reset='\[\e[0m\]'
   PS1="$bold$bg$txt \u@\h \w$NS$RETC $reset "
   PS2="$bold$bg$txt > $reset "
 
