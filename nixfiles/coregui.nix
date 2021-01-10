@@ -84,8 +84,8 @@ in {
           user = "nonroot";
         };
         sessionCommands = ''
-          [ $(hostname) == "ws0" ] && xmodmap -e "keycode 9 = grave"
-          [ $(hostname) == "ws0" ] && xmodmap -e "keycode 49 = asciitilde"
+          # [ $(hostname) == "ws0" ] && xmodmap -e "keycode 9 = grave"
+          # [ $(hostname) == "ws0" ] && xmodmap -e "keycode 49 = asciitilde"
           hsetroot -solid '#000000'
           xset -dpms
           xset s 6000 6000
