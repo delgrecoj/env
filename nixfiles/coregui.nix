@@ -12,11 +12,6 @@ in {
 
   environment = {
     systemPackages = [
-      # FIXME: dunst.
-      # pkgs.libreoffice
-      # pkgs.obs-studio
-      # pkgs.xfce.thunar
-      # pkgs.xfce.tumbler
       pkgs.alacritty
       pkgs.arc-icon-theme
       pkgs.bemenu
@@ -26,13 +21,15 @@ in {
       pkgs.hsetroot
       pkgs.imv
       pkgs.lxappearance
-      # pkgs.matcha-gtk-theme
       pkgs.mpv
+      pkgs.obs-studio
       pkgs.pavucontrol
       pkgs.scrot
       pkgs.slock
       pkgs.sxiv
       pkgs.xclip
+      pkgs.xfce.thunar
+      pkgs.xfce.tumbler
       pkgs.xorg.xmodmap
       pkgs.xorg.xset
       pkgs.youtube-dl
