@@ -125,6 +125,7 @@ Plug 'lnl7/vim-nix'
 " improved Elixir integration
 " Plug 'elixir-lang/vim-elixir'
 
+Plug 'sheerun/vim-polyglot'
 " Plug 'fsharp/vim-fsharp', {'for': 'fsharp', 'do': 'make fsautocomplete'}
 " Plug 'zah/nim.vim'
 " Plug 'rhysd/vim-crystal'
