@@ -70,6 +70,11 @@ _passfind() {
   echo "$passwords" | fzf --height 8 --reverse --select-1
 }
 
+# include certain private and public scripts and binaries in $PATH
+# this probably should be in some kind of ~/.profile isntead, fwiw.
+PATH=$PATH:/_projects/bin
+PATH=$PATH:/_projects/env/scripts
+
 
 ############################################################
 ##########  prompt  ########################################
