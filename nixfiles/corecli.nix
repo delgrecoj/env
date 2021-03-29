@@ -54,6 +54,7 @@
       pkgs.jq
       pkgs.less
       pkgs.lm_sensors
+      pkgs.lsof
       pkgs.micro
       pkgs.mkcert
       pkgs.mkpasswd
