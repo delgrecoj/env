@@ -122,35 +122,10 @@ endfunction
 " improved Nix integration
 Plug 'lnl7/vim-nix'
 
-" improved Elixir integration
-" Plug 'elixir-lang/vim-elixir'
-
+" okayish syntax highlighting for most langs
 Plug 'sheerun/vim-polyglot'
-" Plug 'fsharp/vim-fsharp', {'for': 'fsharp', 'do': 'make fsautocomplete'}
-" Plug 'zah/nim.vim'
-" Plug 'rhysd/vim-crystal'
-" Plug 'elmcast/elm-vim'
-" Plug 'ziglang/zig.vim'
 
-" Plug 'pangloss/vim-javascript'
-" Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
-" improved Scala integration
-" Plug 'derekwyatt/vim-scala'
-" Plug 'prabirshrestha/asyncomplete-lsp.vim'
-" Plug 'prabirshrestha/asyncomplete.vim'
-" Plug 'prabirshrestha/vim-lsp'
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" imap <c-space> <Plug>(asyncomplete_force_refresh)
-" if executable('metals-vim')
-"    au User lsp_setup call lsp#register_server({
-"       \ 'name': 'metals',
-"       \ 'cmd': {server_info->['metals-vim']},
-"       \ 'initialization_options': { 'rootPatterns': 'build.sbt' },
-"       \ 'whitelist': [ 'scala', 'sbt' ],
-"       \ })
-" endif
 
 " markdown tweaks to improve folding in large documents with nested headers.
 " also, disable some absurd nonsensical defaults that that plugin ships with.
