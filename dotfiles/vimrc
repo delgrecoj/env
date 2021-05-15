@@ -127,6 +127,18 @@ Plug 'sheerun/vim-polyglot'
 
 
 
+" js/ts/svelte/web
+" generally keep an autocompile running separately, so mostly after syntax highlighting, indentation, etc here.
+" have had consistently terrible experiences over the years getting autocomplete and other advanced IDE-like features
+" to a) work in the first place, and b) stay working over time, so have mostly given up.
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+let g:svelte_preprocessor_tags = [
+  \ { 'name': 'ts', 'tag': 'script', 'as': 'typescript' }
+  \ ]
+let g:svelte_preprocessors = ['ts']
+
+
+
 " markdown tweaks to improve folding in large documents with nested headers.
 " also, disable some absurd nonsensical defaults that that plugin ships with.
 
