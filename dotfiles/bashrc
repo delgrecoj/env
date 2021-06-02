@@ -204,6 +204,9 @@ alias htop="HTOPRC=/etc/htoprc htop"
 alias ns='nix-shell'
 alias q="exit"
 
+# recursively convert all the Ctrl-M dos line endings to unix
+alias undoze='\find -type f -print0 | xargs -0 dos2unix'
+
 # prevents leaking clipboard data to login forms
 # function hides Ctrl+C default output if no arg is given
 function pc() {
