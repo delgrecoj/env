@@ -146,6 +146,7 @@ let g:coc_global_extensions = [
   \ 'coc-sh',
   \ 'coc-svelte',
   \ 'coc-tsserver',
+  \ 'coc-omnisharp',
   \ ]
 
 

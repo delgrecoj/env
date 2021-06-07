@@ -34,7 +34,7 @@
       pkgs.dos2unix
       pkgs.editorconfig-core-c
       pkgs.elixir
-      pkgs.julia
+      # pkgs.julia
       pkgs.entr
       pkgs.exa
       pkgs.fd
